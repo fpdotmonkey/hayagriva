@@ -608,7 +608,9 @@ impl TryFrom<&tex::Entry> for Entry {
             }
         }
 
-        // TODO: use the chapter field
+        if let Some(chapter) = map_res(entry.chapter())? {
+            item.set_chapter_number(chapter.into());
+        };
 
         Ok(item)
     }

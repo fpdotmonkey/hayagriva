@@ -141,7 +141,7 @@ impl EntryLike for Entry {
         variable: NumberVariable,
     ) -> Option<MaybeTyped<Cow<'_, Numeric>>> {
         match variable {
-            NumberVariable::ChapterNumber => self
+            NumberVariable::ChapterNumber => dbg!(self
                 .bound_select(
                     &select!(
                         (("e":Anthos) > ("p":Anthology)) |
@@ -151,8 +151,8 @@ impl EntryLike for Entry {
                     ),
                     "e",
                 )
-                .and_then(Entry::volume)
-                .map(MaybeTyped::to_cow),
+                .and_then(Entry::chapter_number)
+                .map(MaybeTyped::to_cow)),
             NumberVariable::CitationNumber => panic!("processor must resolve this"),
             NumberVariable::CollectionNumber => {
                 self.get_collection().and_then(Entry::volume).map(MaybeTyped::to_cow)

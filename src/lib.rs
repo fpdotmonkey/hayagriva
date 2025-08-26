@@ -527,6 +527,8 @@ entry! {
     "page-total" => page_total: Numeric,
     /// The time range within the parent this item starts and ends at.
     "time-range" => time_range: MaybeTyped<DurationRange>,
+    /// asdfa
+    "chapter-number" => chapter_number: MaybeTyped<Numeric>,
     /// The total runtime of the item.
     "runtime" => runtime: MaybeTyped<Duration>,
     /// Canonical public URL of the item, can have access date.
